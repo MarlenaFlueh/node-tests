@@ -13,6 +13,19 @@ it('should square a number', () => {
   expect(res).toBe(25).toBeA('number');
 });
 
+it('should async square a number', () => {
+  utils.asyncSquare(3,(sum) => {
+    expect(sum).toBe(9).toBeA('number');
+  });
+});
+
+it('should add with set time out', (done) => {
+  utils.asyncAdd(1, 2, (sum) => {
+    expect(sum).toBe(3).toBeA('number');
+    done();
+  });
+});
+
 it('should have first and last name', () => {
   const userObject = {age: 21, location: 'Germany'};
   const res = utils.setName({userObject}, 'Malle Flueh');
